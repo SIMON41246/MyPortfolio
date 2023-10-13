@@ -39,44 +39,26 @@ class AnimatedImageContainerState extends State<AnimatedImageContainer>
             height: widget.height!,
             width: widget.width!,
             padding: const EdgeInsets.all(defaultPadding / 4),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
-              gradient: const LinearGradient(colors: [
-                Colors.pinkAccent,
-                Colors.blue,
-              ]),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.pink,
-                  offset: Offset(-2, 0),
-                  blurRadius: 20,
-                ),
-                BoxShadow(
-                  color: Colors.blue,
-                  offset: Offset(2, 0),
-                  blurRadius: 20,
-                ),
-              ],
-            ),
             child: Container(
               alignment: Alignment.center,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
                 color: Colors.black,
-                borderRadius: BorderRadius.circular(30),
               ),
               child: Image.asset(
-                'assets/images/image.png',
+                'assets/images/profile.jpg',
+
                 height: Responsive.isLargeMobile(context)
-                    ? MediaQuery.sizeOf(context).width * 0.2
+                    ? MediaQuery.sizeOf(context).width * 1
                     : Responsive.isTablet(context)
-                        ? MediaQuery.sizeOf(context).width * 0.14
+                        ? MediaQuery.sizeOf(context).width * 0.2
                         : 200,
                 width: Responsive.isLargeMobile(context)
-                    ? MediaQuery.sizeOf(context).width * 0.2
+                    ? MediaQuery.sizeOf(context).width * 0.4
                     : Responsive.isTablet(context)
-                        ? MediaQuery.sizeOf(context).width * 0.14
+                        ? MediaQuery.sizeOf(context).width * 0.2
                         : 200,
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
               ),
             ),
           ),

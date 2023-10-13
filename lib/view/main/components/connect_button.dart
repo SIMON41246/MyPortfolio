@@ -12,7 +12,7 @@ class ConnectButton extends StatelessWidget {
       padding:  const EdgeInsets.symmetric(vertical: defaultPadding),
       child: InkWell(
         onTap: () {
-          launchUrl(Uri.parse('https://wa.me/03054200605'));
+          EmailLaunch.launchEmailSubmission();
         },
         borderRadius: BorderRadius.circular(defaultPadding +10),
         child: Container(
@@ -33,9 +33,9 @@ class ConnectButton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Icon(FontAwesomeIcons.whatsapp,color: Colors.greenAccent,size: 15,),
+              const Icon(Icons.alternate_email,color: Colors.deepOrange,size: 15,),
               const SizedBox(width : defaultPadding/4),
-              Text('Whatsapp',style: Theme.of(context).textTheme.labelSmall!.copyWith(
+              Text('Contact Me',style: Theme.of(context).textTheme.labelSmall!.copyWith(
                   color: Colors.white,
                   letterSpacing: 1.2,
                   fontWeight: FontWeight.bold

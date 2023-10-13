@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import '../../../res/constants.dart';
 import '../../../view model/responsive.dart';
 import 'animated_texts_componenets.dart';
@@ -7,8 +9,10 @@ import 'combine_subtitle.dart';
 import 'description_text.dart';
 import 'download_button.dart';
 import 'headline_text.dart';
+
 class IntroBody extends StatelessWidget {
   const IntroBody({super.key});
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
@@ -50,7 +54,7 @@ class IntroBody extends StatelessWidget {
                   color: Colors.transparent,
                 ),
               const CombineSubtitleText(),
-              const SizedBox(height: defaultPadding / 2),
+              const SizedBox(height: defaultPadding / 1.5),
               const Responsive(
                 desktop: AnimatedDescriptionText(start: 14, end: 15),
                 largeMobile: AnimatedDescriptionText(start: 14, end: 12),
@@ -58,9 +62,45 @@ class IntroBody extends StatelessWidget {
                 tablet: AnimatedDescriptionText(start: 17, end: 14),
               ),
               const SizedBox(
-                height: defaultPadding * 2,
+                height: defaultPadding * 1.4,
               ),
-              const DownloadButton(),
+              Responsive.isDesktop(context) || Responsive.isLargeMobile(context)
+                  ? Column(
+                      children: [
+                        DownloadButton(
+                          language: "French",
+                          Link:
+                              "https://drive.google.com/file/d/1QkBKgmKI_JA7FOCJpTQzCTbJnuqiJSPz/view?usp=sharing",
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                        DownloadButton(
+                          language: "English",
+                          Link:
+                              "https://drive.google.com/file/d/1KDSOqaMBUS3i18pMV9wnnFH88uKTzTKk/view?usp=sharing",
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                      ],
+                    )
+                  : Row(
+                      children: [
+                        DownloadButton(
+                          language: "French",
+                          Link: "https://drive.google.com/file/d/1QkBKgmKI_JA7FOCJpTQzCTbJnuqiJSPz/view?usp=sharing",
+                        ),
+                        const SizedBox(
+                          width: 12,
+                        ),
+                        DownloadButton(
+                          language: "English",
+                          Link:
+                              "https://drive.google.com/file/d/1KDSOqaMBUS3i18pMV9wnnFH88uKTzTKk/view?usp=sharing",
+                        ),
+                      ],
+                    ),
             ],
           ),
         ),

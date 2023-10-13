@@ -24,7 +24,9 @@ class MainView extends StatelessWidget {
             if(Responsive.isLargeMobile(context))  const Row(children: [Spacer(),NavigationButtonList(),Spacer()],),
             Expanded(
                 flex: 9,
+
                 child: PageView(
+
                   scrollDirection: Axis.vertical,
                   physics: const NeverScrollableScrollPhysics(),
                   controller: controller,
